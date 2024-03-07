@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 /// <summary>
@@ -10,7 +11,8 @@ public class ServiceLocator : MonoBehaviour {
     public static ServiceLocator Instance {
         get {
             if (instance == null) {
-                instance = new GameObject("ServiceLocator").AddComponent<ServiceLocator>();
+                ServiceLocator prefab = Resources.Load<ServiceLocator>("Service Locator");
+                Component.Instantiate(prefab);
             }
             return instance;
         }
@@ -26,23 +28,11 @@ public class ServiceLocator : MonoBehaviour {
         DontDestroyOnLoad(gameObject);
     }
 
-    private readonly System.Collections.Generic.Dictionary<Type, MonoBehaviour> services =
-        new System.Collections.Generic.Dictionary<Type, MonoBehaviour>();
+    public T GetSystem<T>() {
+        T service = GetComponentInChildren<T>();
 
-    public void RegisterService<T>(T service) where T : MonoBehaviour {
-        Type type = typeof(T);
-        if (!services.ContainsKey(type))
-            services.Add(type, service);
-        else Debug.LogWarning("Service of type " + type + " is already registered.");
-    }
-
-    public T GetService<T>() {
-        Type type = typeof(T);
-        if (services.TryGetValue(type, out MonoBehaviour service))
-            return service.GetComponentInChildren<T>();
-        else {
-            Debug.LogWarning("Service of type " + type + " not found.");
-            return default(T);
-        }
+        if (service == null) 
+            Debug.LogWarning("Service of type " + typeof(T).Name + " not found.");
+        return service;
     }
 }
