@@ -1,0 +1,22 @@
+{
+    "name": "games.starforce.service-locator",
+    "version": "1.0.0-pre.1",
+    "displayName": "Service Locator",
+    "description": "An implementation of the service locator pattern in Unity using MonoBehaviours, and a prefab in Resources.\n\nAccess the Github Repository at https://github.com/NatiSFG/service-locator",
+    "unity": "2023.2",
+    "keywords": [
+        "starforcegames",
+        "sfg",
+        "c#",
+        "scripting",
+        "programming",
+        "references",
+        "foundation",
+        "architecture"
+    ],
+    "author": {
+        "name": "Natalia DaLomba",
+        "email": "natalia@starforce.games",
+        "url": "https://github.com/NatiSFG"
+    }
+}
