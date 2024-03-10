@@ -1,6 +1,6 @@
 {
     "name": "games.starforce.service-locator",
-    "version": "1.0.0-pre.1",
+    "version": "1.0.0-pre.2",
     "displayName": "Service Locator",
     "description": "An implementation of the service locator pattern in Unity using MonoBehaviours, and a prefab in Resources.\n\nAccess the Github Repository at https://github.com/NatiSFG/service-locator",
     "unity": "2023.2",
